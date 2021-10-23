@@ -58,7 +58,7 @@ es lo equivalente a pip install ...
 * `pip install -r requirements.txt` instalamos todas las libreiras
 * `pip freeze` muestra las librerias instaladas
 
-## simpleJWT
+## config de simpleJWT
 creamos la variable(diccionario) `REST_FRAMEWORK` en `backend/authProject/settings.py`
 
 * `'DEFAULT_PERMISSION_CLASSES'` => permisos de acceso
@@ -99,9 +99,57 @@ agregar el `__init__.py`
 
 ## models
 creamos un archivo por cada tabla
-importamos 
-* `models` desde `django.db`
-* `AbstractBaseUser` desde `django.contrib.auth.models`   
-* `PermissionsMixin` desde `django.contrib.auth.models`   
-* `BaseUserManager` desde `django.contrib.auth.models`    => gestinar ususarios
-* `make_password` desde `django.contrib.auth.hashers`     => encriptar la clave
+* en los modelos que se necesiten validacion se crea clase manager, se utiliza como "Dao"
+* se crean modelos equivalentes a las tablas de la db
+
+importamos los modelos desde el `__init__.py`
+
+## admin
+importamos los modelos `User` y `Account` a `backend/authApp/admin.py`
+dejamos la posibilidad de agregar los modelos al administrador por defecto de Django
+
+## config de autenticacion
+creamos la variable(diccionario) `AUTH_USER_MODEL` en `backend/authProject/settings.py`
+
+* `'authApp.User'` => autenticacion sobre el ususario
+
+## migracion
+conectamos con la db, se crean tablas por defectos y de los modelos(si no existen)
+ejecutamos:
+* `python manage.py makemigrations authApp` => obtiene los modelos de la App y los agrega al modelo de datos global del proyecto
+* `python manage.py migrate` => migramos los modelos a la db
+
+## serializers
+creamos un serializer por cada modelo en `backend/authApp/serializers/`
+* importamos el modelo
+* importamos los serializers
+
+creamos los serializers a partir de los modelos
+
+importamos en el `__init__.py`
+
+### self
+metodos en python llevan self
+funcion = static
+metodo = funcion de clase no estatica
+
+## views
+creamos las vistas que necesitemos en la carpeta `backend/authApp/views/`
+
+importamos los modelos desde el `__init__.py`
+
+## urls
+agregamos los urls en `backend/authProject/urls.py`
+importamos todas las vistas
+enrutamos los links a cada vista
+
+## creamos crud (transaccion)
+creamos el modelo `transaction.py` a `backend/authApp/models/`
+volvemos a hacer la migracion: 
+* `python manage.py makemigrations authApp`
+* `python manage.py migrate`
+creamos el serializer `transactionSerializer.py` en `backend/authApp/serializers/`
+creamos el view `transactionView.py` en `backend/authApp/views`
+
+agregamos los endpoints a `backend/authProject/urls.py`
+agregar los archivos a sus resoectivos `__init__.py`

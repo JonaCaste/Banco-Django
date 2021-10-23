@@ -65,12 +65,14 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' : (
-        'rest_framework.permission.AllowAny',
+        'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES' : (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+AUTH_USER_MODEL = 'authApp.User'
 
 ROOT_URLCONF = 'authProject.urls'
 
@@ -99,10 +101,10 @@ WSGI_APPLICATION = 'authProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9j9khr57rk4l6',
-        'USER': 'ffuhsdoinesclx',
-        'PASSWORD': 'c5b5e83d809b64833d183cc149ce1dd7a5f7d73fe7d9507aecb55dbe5bba7d82',
-        'HOST': 'ec2-54-209-187-69.compute-1.amazonaws.com',
+        'NAME': 'dan8sr7f9vr14t',
+        'USER': 'jccyhrdbcvzggj',
+        'PASSWORD': '51e5b3158eac14a846cb206488636e7c331b644d12ab27cd65686450ca46066b',
+        'HOST': 'ec2-18-234-15-247.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }

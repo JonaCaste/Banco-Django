@@ -1,21 +1,20 @@
-"""authProject URL Configuration
+from django.contrib                         import admin
+from django.urls                            import path
+from authApp                                import views
+from rest_framework_simplejwt.views         import (TokenObtainPairView, TokenRefreshView)
+                                            #pareja token access- token refresh
+                                            #crea token refresh a partir de un token access
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path
 
+#asociamos cada endpoint a la calse que debe llamar
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/',          admin.site.urls),
+    path('login/',          TokenObtainPairView.as_view()),     #al logearse devolvemos la pareja de tokens
+    path('refresh/',        TokenRefreshView.as_view()),        #devolvemos un refresh token a partir del access token
+    path('user/',           views.UserCreateView.as_view()),
+    path('user/<int:pk>/',   views.UserDetailView.as_view()),
+    path('transaction/',                            views.TransactionsCreateView.as_view()),
+    path('transaction/<int:user>/<int:pk>/',        views.TransactionsDetailView.as_view()),
+    path('transaction/<int:user>/<int:account>/',   views.TransactionsAccountView.as_view()),
+    path('transaction/remove/<int:user>/<int:pk>/', views.TransactionsDeleteView.as_view())
 ]

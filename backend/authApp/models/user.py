@@ -1,6 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager   #gestion de usuarios y tablas (ORM)
+from django.contrib.auth.hashers import make_password                                        #encriptar contraseña
 
 #manager
 class UserManager(BaseUserManager):           #es equivalente a un dao
@@ -32,14 +32,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     id = models.BigAutoField(primary_key=True)     #id autoincremental super seguro(aporx 64 caracteres)
     username = models.CharField('Username', max_length=20, unique=True)    #tipo de dato(nombre dentro de la tabla)
     password = models.CharField('Password', max_length=256)
-    nombre = models.CharField('Nombre', max_length=50)
+    name = models.CharField('Nombre', max_length=50)
     email = models.EmailField('Email', max_length=100)
 
-    def save(self, **kwargs):                   #**kwargs = recibe una lista de parametros que guarda en un dic
+    def save(self, **kwargs):                   #** = recibe una lista(los parametros que lleguen) de parametros que guarda en un dic
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN'    #basado en este texto se cifra la contraseña original
         self.password = make_password(self.password, some_salt)
 
         super().save(**kwargs)                  #super clase
 
-    object = UserManager()
+    objects = UserManager()
     USERNAME_FIELD = 'username'                 #campo principal para traer el username
