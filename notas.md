@@ -226,4 +226,4 @@ subir desde master
 
 desplegar directamente desde github
 
-* eliminar la db creada por defecto dentro de la app backend en heroku
+### eliminar la db creada por defecto dentro de la app backend en heroku
