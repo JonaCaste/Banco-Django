@@ -13,8 +13,9 @@ urlpatterns = [
     path('refresh/',        TokenRefreshView.as_view()),        #devolvemos un refresh token a partir del access token
     path('user/',           views.UserCreateView.as_view()),
     path('user/<int:pk>/',   views.UserDetailView.as_view()),
-    path('transaction/',                            views.TransactionsCreateView.as_view()),
-    path('transaction/<int:user>/<int:pk>/',        views.TransactionsDetailView.as_view()),
-    path('transaction/<int:user>/<int:account>/',   views.TransactionsAccountView.as_view()),
-    path('transaction/remove/<int:user>/<int:pk>/', views.TransactionsDeleteView.as_view())
+    path('transaction/',                                views.TransactionsCreateView.as_view()),
+    path('transaction/<int:user>/<int:pk>/',            views.TransactionsDetailView.as_view()),
+    path('transactions/<int:user>/<int:account>/',      views.TransactionsAccountView.as_view()),
+    path('transaction/update/<int:user>/<int:pk>/',     views.TransactionsUpdateView.as_view()),
+    path('transaction/remove/<int:user>/<int:pk>/',     views.TransactionsDeleteView.as_view())
 ]

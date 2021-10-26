@@ -42,4 +42,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         super().save(**kwargs)                  #super clase
 
     objects = UserManager()
-    USERNAME_FIELD = 'username'                 #campo principal para traer el username
+    USERNAME_FIELD = 'username'                 #campo de logeo para iniciar sesion

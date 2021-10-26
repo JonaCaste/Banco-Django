@@ -1,1 +1,129 @@
-env
+# Archivos compilados / optimizados / DLL compilados por byte
+__pycache__/
+*.py[bacalao]
+*$py.class
+
+# Extensiones C
+*.so
+
+# Distribución / embalaje
+. Pitón
+construir/
+desarrollar-huevos/
+dist/
+descargas/
+huevos/
+.huevos/
+lib/
+lib64/
+partes/
+sdista/
+var/
+ruedas/
+pip-wheel-metadata/
+compartir/python-wheels/
+*.egg-info/
+.instalado.cfg
+*.huevo
+MANIFIESTO
+
+# PyInstaller
+# Por lo general, estos archivos están escritos por un script de Python desde una plantilla.
+# antes de que PyInstaller construya el exe, para inyectar información de fecha / otra información en él.
+*.manifest
+*.spec
+
+# Registros del instalador
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Pruebas unitarias / informes de cobertura
+htmlcov/
+.tox/
+.nox/
+.cobertura
+.cobertura.*
+.cache
+pruebas de nariz.xml
+cobertura.xml
+*.cover
+*.py, cubierta
+.hipótesis/
+.pytest_cache/
+
+# Traducciones
+*.mo
+*.pot
+
+# Cosas de Django:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Configuración del proyecto Spyder
+.spyderproject
+.spyproject
+
+# Configuración del proyecto de cuerda
+.ropeproject
+
+# documentación de mkdocs
+/sitio
+
+# mipy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Comprobador de tipo pira
+.pyre/

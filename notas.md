@@ -153,3 +153,67 @@ creamos el view `transactionView.py` en `backend/authApp/views`
 
 agregamos los endpoints a `backend/authProject/urls.py`
 agregar los archivos a sus resoectivos `__init__.py`
+
+# despliegue
+
+## crear settings de produccion
+crear una copia de `backend/authProject/settings.py`
+
+cambiar las configuraciones para desplegar en `backend/authProject/settings_prod.py`
+
+cambiar las cofiguraciones de inicio del proyecto en `backend/manage.py` a `settings_prod`
+
+cambiar las cofiguraciones de inicio del proyecto en `backend/authProject/wsgi.py` a `settings_prod`
+* en caso de utilizar otra db para produccion, volver a migrar los modelos
+
+## pre config del despliegue en heroku
+creamos una nueva app en heroku
+
+agregar nuevas librerias a el `backend/requirements.txt`
+* gunicorn -> se inicia con el server, corre como proceso que se ejecuta todo el tiempo en la maquina
+* django-heroku -> conectar django con heroku
+
+importar `django-heroku` en `backend/authProject/settings_prod.py`
+agregar `django_heroku.settings(locals())` en `backend/authProject/settings_prod.py`
+* `django_heroku.settings(locals())` -> basar el despliegue en las configs locales
+
+crear `Procfile` en `backend`
+* `web: gunicorn authProject.wsgi` -> servicio web: con settings del wsgi
+
+agregar los archivos al `.gitignore` que no necesitamos subir(desde github se crea por defecto)
+
+## despliegue en heroku
+* salir del entorno virtual
+
+despliegue desde el CLI de heroku
+`heroku login`
+* dejar la pestaña del nav abierta
+
+`git init`
+* si no se ha iniciado un repo
+
+`heroku git:remote -a banco-django-be`
+* con el nombre de la app en heroku
+
+`git add .`
+* desde la carpeta backend
+
+`git commit -am "Deploy first version"`
+* -am -> el commit tiene una flag mas
+
+`git push heroku master`
+
+### genera conflicto si ya existe un repo en github
+crear una rama master
+subir desde master
+
+`git checkout -b master`
+
+`git pull origin main`
+* tener todo en el main actualizado
+
+`git push heroku master`
+
+### o
+
+desplegar directamente desde github
