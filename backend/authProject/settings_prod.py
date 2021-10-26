@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-$2xk)kcbfprtr!#ik8uuayc@2_)v@m6lxh7up7*jt^fzm+3v8q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False           # false en produccion
 
-ALLOWED_HOSTS = ['ec2-18-234-15-247.compute-1.amazonaws.com', 'localhost']      
+ALLOWED_HOSTS = ['localhost']      
                         # de done se aceptan solicitudes
                         # por ejemplo solo ip del frontend
 
