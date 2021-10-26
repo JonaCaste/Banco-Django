@@ -190,7 +190,7 @@ despliegue desde el CLI de heroku
 * dejar la pestaña del nav abierta
 
 `git init`
-* si no se ha iniciado un repo
+* si no se ha iniciado un repo (del backend)
 
 `heroku git:remote -a banco-django-be`
 * con el nombre de la app en heroku
@@ -225,3 +225,5 @@ subir desde master
 ### o
 
 desplegar directamente desde github
+
+* eliminar la db creada por defecto dentro de la app backend en heroku
