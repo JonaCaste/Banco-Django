@@ -208,9 +208,17 @@ crear una rama master
 subir desde master
 
 `git checkout -b master`
+* si no existe
+
+`git checkout master`
+* si existe
 
 `git pull origin main`
 * tener todo en el main actualizado
+
+`git add .`
+
+`git commit -am "Deploy first version"`
 
 `git push heroku master`
 
