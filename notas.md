@@ -227,3 +227,6 @@ subir desde master
 desplegar directamente desde github
 
 ### eliminar la db creada por defecto dentro de la app backend en heroku
+
+## se agregaron validaciones al post de las transacciones
+## se agrego toda la parte de deposito

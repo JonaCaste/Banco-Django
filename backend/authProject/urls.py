@@ -17,5 +17,8 @@ urlpatterns = [
     path('transaction/<int:user>/<int:pk>/',            views.TransactionsDetailView.as_view()),
     path('transactions/<int:user>/<int:account>/',      views.TransactionsAccountView.as_view()),
     path('transaction/update/<int:user>/<int:pk>/',     views.TransactionsUpdateView.as_view()),
-    path('transaction/remove/<int:user>/<int:pk>/',     views.TransactionsDeleteView.as_view())
+    path('transaction/remove/<int:user>/<int:pk>/',     views.TransactionsDeleteView.as_view()),
+    path('deposit/create/',                             views.DepositCreateView.as_view()), # create a new deposit
+    path('deposit/<int:user>/<int:pk>/',                views.DepositDetailView.as_view()), # view information for a deposit
+    path('deposits/<int:user>/<int:account>/',          views.DepositsAccountView.as_view()) # view all depositss for an specific account
 ]
