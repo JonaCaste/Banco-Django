@@ -230,3 +230,47 @@ desplegar directamente desde github
 
 ## se agregaron validaciones al post de las transacciones
 ## se agrego toda la parte de deposito
+
+## config de CORS
+agregamos `django-cors-headers` en `backend/requirements.txt`
+
+se agrega `corsheaders` a `backend/authProject/settings.py` y `settings_prod.py` en `INSTALLED_APPS`
+
+se agrega `corsheaders.middleware.CorsMiddlewear` a `backend/authProject/settings.py` y `settings_prod.py` en `MIDDLEWARE`
+
+creamos la variable `CORS_ALLOWED_ORIGINS` en `backend/authProject/settings.py` y `settings_prod.py`
+agregamos la URL que poede hacer peticiones CORS a nuestro backend, o True (para cualquier URL)
+
+
+# Frontend
+
+## instalar node y vue
+
+instalamos node js en el computador
+instalamos vue por medio de `npm global add @vue/cli`
+
+iniciamos un proyecto vue con  `vue create ...` (nombre)
+seleccionamos `manually select features` y seleccionamos:
+* `choose Vue version`
+* `Babel`
+* `Router`
+seleccionamos la versión `3.x`
+Requires proper server setup for index fallback in production -> seleccionamos `n` (no)
+seleccionamos `package.json` para la config del proyecto
+Save this as a preset for future projects? (guardar plantilla para otros proyectos)-> seleccionamos `n` (no)
+
+## iniciar servidor 
+`npm run serve`
+
+## router
+movemos el archivo `frontend/src/router/index.js` a `frontend/src/`
+lo renombramos a `router.js`
+
+## arranque
+cambiamos el componente `Home` a `App` en `frontend/src/router.js`
+importar `App` en router
+
+eliminamos las otras rutas, ya que se manejaran las rutas directamente desde `App.vue`
+
+## config inicial
+en el archivo `frontend/src/main.js` encontramos la config incial del proyecto
