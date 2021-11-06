@@ -236,7 +236,7 @@ agregamos `django-cors-headers` en `backend/requirements.txt`
 
 se agrega `corsheaders` a `backend/authProject/settings.py` y `settings_prod.py` en `INSTALLED_APPS`
 
-se agrega `corsheaders.middleware.CorsMiddlewear` a `backend/authProject/settings.py` y `settings_prod.py` en `MIDDLEWARE`
+se agrega `corsheaders.middleware.CorsMiddleware` a `backend/authProject/settings.py` y `settings_prod.py` en `MIDDLEWARE`
 
 creamos la variable `CORS_ALLOWED_ORIGINS` en `backend/authProject/settings.py` y `settings_prod.py`
 agregamos la URL que poede hacer peticiones CORS a nuestro backend, o True (para cualquier URL)
@@ -274,3 +274,22 @@ eliminamos las otras rutas, ya que se manejaran las rutas directamente desde `Ap
 
 ## config inicial
 en el archivo `frontend/src/main.js` encontramos la config incial del proyecto
+
+## componentes
+eliminamos los archivos iniciales de `frontend/src/components/`
+
+y creamos :
+* `SignUp.vue`
+* `Login.vue`
+lo importamos en `frontend/src/router.js`
+
+agregamos los redirecionamientos en `frontend/src/router.js`
+
+## construimos la app
+creamos un nav en `frontend/src/App.vue`
+
+## instalamos axios
+`npm install axios`
+
+## modificamos el componente LogIn
+en `frontend/src/components/Login.vue`

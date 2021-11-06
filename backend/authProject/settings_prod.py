@@ -31,7 +31,9 @@ ALLOWED_HOSTS = ['localhost']
                         # de done se aceptan solicitudes
                         # por ejemplo solo ip del frontend
 
-CORS_ALLOWED_ORIGINS = True
+#CORS_ALLOWED_ORIGINS = []   #urls permitidas
+
+CORS_ALLOW_ALL_ORIGINS = True   # permite todas las urls
 
 
 # Application definition
